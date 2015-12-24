@@ -99,4 +99,10 @@ public class LinkedList {
         return position;
     }
 
+    public void sort(){
+        if(this.head == null){
+            return;
+        }
+
+    }
 }

@@ -18,7 +18,6 @@ public class LinkedListTest extends TestCase {
         linkedList = null;
     }
 
-
     public void testInsertFront() throws Exception {
         linkedList.insertFront(5);
         assertEquals(linkedList.getHead(), 5);
@@ -42,7 +41,6 @@ public class LinkedListTest extends TestCase {
                 assertEquals(true, true);
             }
         }
-
         linkedList.insertFront(5);
         assertEquals(linkedList.getHead(), 5);
     }
@@ -56,5 +54,6 @@ public class LinkedListTest extends TestCase {
         assertEquals(linkedList.search(6),1);
         assertEquals(linkedList.search(10), -1);
     }
+
 
 }
