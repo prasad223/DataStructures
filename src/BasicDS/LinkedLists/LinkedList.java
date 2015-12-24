@@ -99,10 +99,58 @@ public class LinkedList {
         return position;
     }
 
+    private LLNode sortedInsert(LLNode node, int data){
+        LLNode newNode = new LLNode(data);
+        if(node == null){
+            node = newNode;
+            return node;
+        }
+        LLNode current = node;
+        LLNode previous = null;
+        while (current != null){
+            if(data <= current.data){
+                break;
+            }
+            previous = current;
+            current = current.next;
+        }
+        if(previous == null ){
+            newNode.next = current;
+            node = newNode;
+        }
+        else if(previous != null ){
+            newNode.next = previous.next;
+            previous.next = newNode;
+        }
+        return  node;
+    }
+
+    public void display(){
+        if(this.head == null){
+            return;
+        }
+        LLNode temp = this.head;
+        while (temp != null){
+            System.out.print(temp.data +"\t");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
     public void sort(){
         if(this.head == null){
             return;
         }
-
+        LLNode temp = this.head;
+        LLNode sortedHead = null;
+        while (temp != null){
+            sortedHead = this.sortedInsert(sortedHead, temp.data);
+            temp = temp.next;
+        }
+        this.head = sortedHead;
+        temp = sortedHead;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        this.tail = temp;
     }
 }

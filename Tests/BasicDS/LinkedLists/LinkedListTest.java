@@ -56,4 +56,12 @@ public class LinkedListTest extends TestCase {
     }
 
 
+    public void testSort() throws Exception {
+        linkedList.insertFront(10);
+        linkedList.insertFront(9);
+        linkedList.insertFront(7);
+        linkedList.sort();
+        linkedList.display();
+        assertEquals(true, true);
+    }
 }
