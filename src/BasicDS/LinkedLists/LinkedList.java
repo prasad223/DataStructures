@@ -67,6 +67,22 @@ public class LinkedList {
         }
     }
 
+    public int popFront(){
+        int response = -1;
+        if(this.head != null){
+            response = this.head.data;
+            this.head = this.head.next;
+        }
+        return response;
+    }
+
+    public void delete(int data){
+        if(this.head == null){
+            return;
+        }
+
+    }
+
     public  int getTail(){
         if(this.tail != null){
             return tail.data;
@@ -118,7 +134,7 @@ public class LinkedList {
             newNode.next = current;
             node = newNode;
         }
-        else if(previous != null ){
+        else{
             newNode.next = previous.next;
             previous.next = newNode;
         }

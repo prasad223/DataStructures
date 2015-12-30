@@ -55,7 +55,6 @@ public class LinkedListTest extends TestCase {
         assertEquals(linkedList.search(10), -1);
     }
 
-
     public void testSort() throws Exception {
         linkedList.insertFront(10);
         linkedList.insertFront(9);
@@ -64,4 +63,6 @@ public class LinkedListTest extends TestCase {
         linkedList.display();
         assertEquals(true, true);
     }
+
+
 }
