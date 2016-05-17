@@ -9,7 +9,7 @@ import java.lang.NullPointerException;
 /**
  * This is the basic node class for Linked List data structure
  */
-class LLNode{
+class LLNode implements Comparable<LLNode>{
 
     public int data;
     public LLNode next;
@@ -28,6 +28,17 @@ class LLNode{
         this.next = null;
         //new LLNode(data, null);
     }
+
+
+    @Override
+    public int compareTo(LLNode llNode) {
+        if(this.data == llNode.data)
+            return 0;
+        else if(this.data < llNode.data)
+            return -1;
+        else
+            return 1;
+    }
 }
 
 /**
@@ -35,36 +46,44 @@ class LLNode{
  */
 public class LinkedList {
 
-    private LLNode head, tail;
+    public LLNode head;
 
     public  LinkedList(){
         this.head = null;
-        this.tail = null;
-    }
-
-    public LinkedList(int data){
-        this.head = new LLNode(data);
-        this.tail = this.head;
     }
 
     public void insertFront(int data){
         LLNode newNode = new LLNode(data, this.head);
         this.head = newNode;
-        if(this.tail == null){
-            this.tail = newNode;
+    }
+
+    public LLNode search(int data){
+        if(this.head == null){
+            return null;
         }
+        LLNode cur = this.head;
+        while(cur!= null){
+            if(cur.data == data){
+                break;
+            }
+            cur = cur.next;
+        }
+        return cur;
     }
 
     public void insertRear(int data){
         LLNode node = new LLNode(data);
-        if(this.head == null && this.tail == null){
-            this.head = this.tail = node;
+        if(this.head == null)
+        {
+            this.head = node;
             return;
         }
-        if(this.tail != null){
-            this.tail.next = node;
-            this.tail = node;
+
+        LLNode cur = this.head;
+        while(cur.next != null){
+            cur = cur.next;
         }
+        cur.next = node;
     }
 
     public int popFront(){
@@ -76,18 +95,68 @@ public class LinkedList {
         return response;
     }
 
-    public void delete(int data){
-        if(this.head == null){
+    public void delete(LLNode node){
+        if(node == null){
             return;
         }
-
+        LLNode temp = node;
+        node = node.next;
+        if(temp == this.head){
+            this.head = node;
+        }
     }
 
-    public  int getTail(){
-        if(this.tail != null){
-            return tail.data;
+    public void reverse(){
+        if(this.head == null || this.head.next == null){
+            return;
         }
-        throw new NullPointerException("Empty tail");
+        LLNode cur = this.head;
+        LLNode next, prev = null;
+        while(cur != null){
+            next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        this.head = prev;
+    }
+
+    public LLNode reverseK(LLNode head , int k){
+        if(head == null || head.next == null || k == 0){
+            return head;
+        }
+        LLNode cur = head;
+        LLNode next = null, prev = null;
+        int count = 0;
+        while(cur != null && count < k){
+            next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+            count++;
+        }
+        if(next != null){
+            head.next = reverseK(next, k);
+        }
+        return prev;
+    }
+
+    public LLNode reverseKRecursive(LLNode head, int k){
+
+        return null;
+    }
+    public LLNode reverseRecursive(LLNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        LLNode temp = reverseRecursive(head.next);
+        head.next = null;
+        LLNode cur = temp;
+        while(cur.next != null){
+            cur = cur.next;
+        }
+        cur.next = head;
+        return temp;
     }
 
     public int getHead(){
@@ -98,7 +167,7 @@ public class LinkedList {
         throw new NullPointerException("Empty list");
     }
 
-    public int search(int data){
+/*    public int search(int data){
         int position = -1, count = 0;
         if(this.head == null){
             return position;
@@ -114,7 +183,7 @@ public class LinkedList {
         }
         return position;
     }
-
+*/
     private LLNode sortedInsert(LLNode node, int data){
         LLNode newNode = new LLNode(data);
         if(node == null){
@@ -152,6 +221,7 @@ public class LinkedList {
         }
         System.out.println();
     }
+
     public void sort(){
         if(this.head == null){
             return;
@@ -167,6 +237,5 @@ public class LinkedList {
         while(temp.next != null){
             temp = temp.next;
         }
-        this.tail = temp;
     }
 }

@@ -27,10 +27,8 @@ public class LinkedListTest extends TestCase {
 
     public void testInsertRear() throws Exception {
         linkedList.insertRear(4);
-        assertEquals(linkedList.getTail(), 4);
         assertEquals(linkedList.getHead(), 4);
         linkedList.insertRear(6);
-        assertEquals(linkedList.getTail(), 6);
     }
 
     public void testGetHead() throws Exception {
@@ -46,13 +44,15 @@ public class LinkedListTest extends TestCase {
     }
 
     public void testSearch() throws Exception {
-        assertEquals(linkedList.search(5), -1);
+        assertEquals(linkedList.search(5), null);
         linkedList.insertFront(6);
-        assertEquals(linkedList.search(6), 0);
+        LLNode node = linkedList.search(6);
+        assertEquals(node.data, 6);
         linkedList.insertRear(4);
         linkedList.insertFront(5);
-        assertEquals(linkedList.search(6),1);
-        assertEquals(linkedList.search(10), -1);
+        node = linkedList.search(5);
+        assertEquals(node.data, 5);
+
     }
 
     public void testSort() throws Exception {
@@ -65,4 +65,36 @@ public class LinkedListTest extends TestCase {
     }
 
 
+    public void testSearch1() throws Exception {
+        linkedList.insertFront(3);
+        LLNode node = linkedList.search(3);
+        assertEquals(node.data, 3);
+        node = linkedList.search(5);
+        assertEquals(node == null, true);
+    }
+
+    public void testReverse() throws Exception {
+        linkedList.insertFront(7);
+        linkedList.insertFront(4);
+        linkedList.insertFront(3);
+        linkedList.display();
+        linkedList.reverse();
+        linkedList.display();
+        linkedList.head = linkedList.reverseRecursive(linkedList.head);
+        linkedList.display();
+
+    }
+
+    public void testReverseK() throws Exception {
+        linkedList.insertFront(4);
+        linkedList.insertFront(3);
+        linkedList.insertFront(2);
+        linkedList.insertFront(1);
+        linkedList.head = linkedList.reverseK(linkedList.head, 0);
+        linkedList.display();
+    }
+
+    public void testReverseKRecursive() throws Exception {
+
+    }
 }

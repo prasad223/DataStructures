@@ -3,15 +3,14 @@ package LeetCode;
 /**
  * Created by prasad223 on 1/2/16.
  */
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
-//    ListNode(int x, ListNode next) { val = x; this.next = next; }
-  }
+
 
 public class LinkedListTwoSum {
-
+   static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2){
         ListNode res = null, cur =null;
         int carry = 0, sum;
