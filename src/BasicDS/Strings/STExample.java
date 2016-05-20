@@ -1,12 +1,6 @@
 package BasicDS.Strings;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Queue;
 import java.util.Random;
-import java.util.StringTokenizer;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by prasad223 on 1/28/16.

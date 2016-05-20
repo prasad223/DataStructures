@@ -1,7 +1,5 @@
 package scratch;
 
-import sun.rmi.runtime.Log;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;

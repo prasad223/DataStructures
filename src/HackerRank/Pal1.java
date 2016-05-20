@@ -3,11 +3,11 @@ package HackerRank;
 /**
  * Created by prasad223 on 1/9/16.
  */
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Pal1 {
 

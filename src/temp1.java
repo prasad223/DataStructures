@@ -7,7 +7,7 @@ import java.util.*;
  *
  * Class to write all simple classes to be used for testing
  */
-public class Solution {
+public class temp1 {
 
 
     public static boolean anyTwo(int[] array, int target){

@@ -2,7 +2,8 @@ package LeetCode;
 
 import junit.framework.TestCase;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by prasad223 on 2/10/16.

@@ -1,7 +1,5 @@
 package BasicDS.Arrays;
 
-import java.util.Arrays;
-
 /**
  * Created by prasad223 on 4/5/16.
  */

@@ -4,8 +4,6 @@ package BasicDS.LinkedLists;
  * Created by prasad223 on 12/23/15.
  */
 
-import java.lang.NullPointerException;
-
 /**
  * This is the basic node class for Linked List data structure
  */
