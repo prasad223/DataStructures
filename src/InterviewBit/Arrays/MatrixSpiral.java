@@ -1,13 +1,12 @@
-package scratch;
+package InterviewBit.Arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by prasad on 5/20/16.
  */
-public class Solution {
+public class MatrixSpiral {
 
     public ArrayList<Integer> getSpiralI(final List<ArrayList<Integer>> a, int r, int c, int row, int col){
         ArrayList<Integer> result = new ArrayList<>();
@@ -62,11 +61,11 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        MatrixSpiral matrixSpiral = new MatrixSpiral();
         List<ArrayList<Integer>> a = new ArrayList<ArrayList<Integer>>();
         a.add(new ArrayList<Integer>(){{add(1) ; add(2); add(3); }});
         a.add(new ArrayList<Integer>(){{add(4) ; add(5); add(6); }});
         a.add(new ArrayList<Integer>(){{add(7) ; add(8); add(9); }});
-        System.out.println(solution.spiralOrder(a));
+        System.out.println(matrixSpiral.spiralOrder(a));
     }
 }
