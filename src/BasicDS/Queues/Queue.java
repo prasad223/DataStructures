@@ -5,14 +5,19 @@ package BasicDS.Queues;
  */
 public interface Queue<T> {
 
-    static String QUEUE_FULL = "Queue is Full";
-    static String QUEUE_EMPTY = "Queue is Empty";
-    static int MAX_CAPACITY = 100;
+  static String QUEUE_FULL = "Queue is Full";
+  static String QUEUE_EMPTY = "Queue is Empty";
+  static int MAX_CAPACITY = 100;
 
-    public int getCapacity();
-    public int getSize();
-    public boolean isEmpty();
-    public boolean isFull();
-    public void enqueue(T element);
-    public T dequeue();
+  public int getCapacity();
+
+  public int getSize();
+
+  public boolean isEmpty();
+
+  public boolean isFull();
+
+  public void enqueue(T element);
+
+  public T dequeue();
 }

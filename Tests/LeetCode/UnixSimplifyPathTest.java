@@ -7,11 +7,11 @@ import junit.framework.TestCase;
  */
 public class UnixSimplifyPathTest extends TestCase {
 
-    public void testSimplifyPath() throws Exception {
-        UnixSimplifyPath unixSimplifyPath= new UnixSimplifyPath();
-        assertEquals(unixSimplifyPath.simplifyPath("/../"),"/");
-        assertEquals(unixSimplifyPath.simplifyPath("/home/doc/../"),"/home");
-        assertEquals(unixSimplifyPath.simplifyPath("/home/"), "/home");
-        assertEquals(unixSimplifyPath.simplifyPath("/a/./b/../../c/"),"/c");
-    }
+  public void testSimplifyPath() throws Exception {
+    UnixSimplifyPath unixSimplifyPath = new UnixSimplifyPath();
+    assertEquals(unixSimplifyPath.simplifyPath("/../"), "/");
+    assertEquals(unixSimplifyPath.simplifyPath("/home/doc/../"), "/home");
+    assertEquals(unixSimplifyPath.simplifyPath("/home/"), "/home");
+    assertEquals(unixSimplifyPath.simplifyPath("/a/./b/../../c/"), "/c");
+  }
 }

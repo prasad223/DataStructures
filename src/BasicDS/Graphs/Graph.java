@@ -8,14 +8,23 @@ import java.util.Set;
 
 public interface Graph<V> {
 
-    void addVertex(V v);
-    void addEdge(Edge<V> e);
-    void removeVertex(V v);
-    void removeEdge(Edge<V> e);
-    boolean hasPath(V u, V v);
-    Graph<V> BFS(V v);
-    Graph<V> DFS(V v);
-    Set<V> getAdjacentVertices(V v);
-    int getVerticesCount();
-    int getEdgesCount();
+  void addVertex(V v);
+
+  void addEdge(Edge<V> e);
+
+  void removeVertex(V v);
+
+  void removeEdge(Edge<V> e);
+
+  boolean hasPath(V u, V v);
+
+  Graph<V> BFS(V v);
+
+  Graph<V> DFS(V v);
+
+  Set<V> getAdjacentVertices(V v);
+
+  int getVerticesCount();
+
+  int getEdgesCount();
 }

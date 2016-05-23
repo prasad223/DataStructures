@@ -11,6 +11,7 @@ import java.util.List;
 public class FindMissingAndRepeatedNumberTest extends TestCase {
   FindMissingAndRepeatedNumber findMissingAndRepeatedNumber = null;
   List<Integer> integerList = null;
+
   public void setUp() throws Exception {
     super.setUp();
     findMissingAndRepeatedNumber = new FindMissingAndRepeatedNumber();

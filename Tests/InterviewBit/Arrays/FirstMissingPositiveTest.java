@@ -28,16 +28,16 @@ public class FirstMissingPositiveTest extends TestCase {
 
   public void testFindFirstMissingPositive() throws Exception {
     numbers.add(-1);
-    assertEquals(1,firstMissingPositive.findFirstMissingPositive(numbers));
+    assertEquals(1, firstMissingPositive.findFirstMissingPositive(numbers));
     numbers.add(0);
-    assertEquals(1,firstMissingPositive.findFirstMissingPositive(numbers));
+    assertEquals(1, firstMissingPositive.findFirstMissingPositive(numbers));
     numbers.add(2);
-    assertEquals(1,firstMissingPositive.findFirstMissingPositive(numbers));
+    assertEquals(1, firstMissingPositive.findFirstMissingPositive(numbers));
     numbers.add(3);
-    assertEquals(1,firstMissingPositive.findFirstMissingPositive(numbers));
-    numbers = Arrays.asList(-4,3,-3,2,1,5);
+    assertEquals(1, firstMissingPositive.findFirstMissingPositive(numbers));
+    numbers = Arrays.asList(-4, 3, -3, 2, 1, 5);
     Collections.sort(numbers);
-    assertEquals(4,firstMissingPositive.findFirstMissingPositive(numbers));
+    assertEquals(4, firstMissingPositive.findFirstMissingPositive(numbers));
   }
 
 }

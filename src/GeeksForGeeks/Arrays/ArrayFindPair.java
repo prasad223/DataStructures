@@ -7,29 +7,29 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class ArrayFindPair {
 
-    public static void main(String[] args){
-        int[] arr = new int[]{4, 5, 2, 8, 9, 3, 9, 12, 8 , 10, 15, 10};
-        int num = 20;
+  public static void main(String[] args) {
+    int[] arr = new int[]{4, 5, 2, 8, 9, 3, 9, 12, 8, 10, 15, 10};
+    int num = 20;
 
-        quickSort(arr, 0, arr.length);
+    quickSort(arr, 0, arr.length);
 
+  }
+
+  public static void quickSort(int[] arr, int low, int high) {
+    if (low >= high) {
+      return;
     }
-
-    public static void quickSort(int[] arr, int low , int high){
-        if(low >= high){
-            return;
-        }
-        int pivotIndex = ThreadLocalRandom.current().nextInt(low, high);
-        int pivot = arr[pivotIndex];
+    int pivotIndex = ThreadLocalRandom.current().nextInt(low, high);
+    int pivot = arr[pivotIndex];
 
 
-        return;
-    }
+    return;
+  }
 
-    public static int findPivot(int[] arr, int low, int high){
-        int pivot = 0;
-        int pivotIndex = ThreadLocalRandom.current().nextInt(low,high);
+  public static int findPivot(int[] arr, int low, int high) {
+    int pivot = 0;
+    int pivotIndex = ThreadLocalRandom.current().nextInt(low, high);
 
-        return pivot;
-    }
+    return pivot;
+  }
 }

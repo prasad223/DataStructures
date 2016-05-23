@@ -8,9 +8,9 @@ import junit.framework.TestCase;
 public class MajorityElementTest extends TestCase {
 
 
-    public void testGetMajorityElement() throws Exception {
-        MajorityElement majorityElement = new MajorityElement();
-        int[] arr = {1,2,3,4,4};
-        assertEquals(majorityElement.getMajorityElement(arr),4);
-    }
+  public void testGetMajorityElement() throws Exception {
+    MajorityElement majorityElement = new MajorityElement();
+    int[] arr = {1, 2, 3, 4, 4};
+    assertEquals(majorityElement.getMajorityElement(arr), 4);
+  }
 }

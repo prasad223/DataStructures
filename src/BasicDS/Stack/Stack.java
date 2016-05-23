@@ -5,10 +5,14 @@ package BasicDS.Stack;
  */
 public interface Stack<T> {
 
-    public int getSize();
-    public boolean isEmpty();
-    public boolean isFull();
-    public boolean push(T element);
-    public T pop();
+  public int getSize();
+
+  public boolean isEmpty();
+
+  public boolean isFull();
+
+  public boolean push(T element);
+
+  public T pop();
 
 }

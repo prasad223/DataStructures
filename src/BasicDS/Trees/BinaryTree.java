@@ -11,207 +11,207 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class BinaryTree {
 
-    TreeNode root;
+  TreeNode root;
 
-    BinaryTree(){
-        root = null;
+  BinaryTree() {
+    root = null;
+  }
+
+  void insert(int data) {
+    TreeNode node = new TreeNode(data);
+    if (this.root == null) {
+      this.root = node;
+      return;
     }
-
-    void insert(int data){
-        TreeNode node = new TreeNode(data);
-        if(this.root == null){
-            this.root = node;
-            return;
+    TreeNode cur = this.root;
+    while (cur != null) {
+      if (data <= cur.data) {
+        if (cur.left == null) {
+          cur.left = node;
+          break;
+        } else {
+          cur = cur.left;
         }
-        TreeNode cur = this.root;
-        while(cur != null){
-            if(data <= cur.data){
-                if(cur.left == null){
-                    cur.left = node;
-                    break;
-                }else{
-                    cur = cur.left;
-                }
-            }else{
-                if(cur.right == null){
-                    cur.right = node;
-                    break;
-                }else{
-                    cur = cur.right;
-                }
-            }
+      } else {
+        if (cur.right == null) {
+          cur.right = node;
+          break;
+        } else {
+          cur = cur.right;
         }
+      }
     }
+  }
 
-    void preorder(TreeNode root){
-        if(root != null){
-            System.out.print(root.data +" ");
-            preorder(root.left);
-            preorder(root.right);
-        }
+  void preorder(TreeNode root) {
+    if (root != null) {
+      System.out.print(root.data + " ");
+      preorder(root.left);
+      preorder(root.right);
     }
+  }
 
-    void inorder(TreeNode node){
-        if(node != null){
-            inorder(node.left);
-            System.out.print(node.data + " ");
-            inorder(node.right);
-        }
+  void inorder(TreeNode node) {
+    if (node != null) {
+      inorder(node.left);
+      System.out.print(node.data + " ");
+      inorder(node.right);
     }
+  }
 
-    void preorderIterative(TreeNode root){
-        TreeNode current;
-        Stack<TreeNode> stack = new Stack<>();
-        ArrayList<Integer> nums = new ArrayList<>();
-        if(root!= null){
-            stack.push(root);
-        }
-        while(!stack.isEmpty()){
-            current = stack.pop();
-            nums.add(current.data);
-            //System.out.print(current.data + " ");
-            if(current.right != null){
-                stack.push(current.right);
-            }
-            if(current.left != null){
-                stack.push(current.left);
-            }
-        }
-        System.out.println(Arrays.toString(nums.toArray()));
+  void preorderIterative(TreeNode root) {
+    TreeNode current;
+    Stack<TreeNode> stack = new Stack<>();
+    ArrayList<Integer> nums = new ArrayList<>();
+    if (root != null) {
+      stack.push(root);
     }
-
-    void postOrder(TreeNode node){
-        if(node != null){
-            postOrder(node.left);
-            postOrder(node.right);
-            System.out.print(node.data+ " ");
-        }
+    while (!stack.isEmpty()) {
+      current = stack.pop();
+      nums.add(current.data);
+      //System.out.print(current.data + " ");
+      if (current.right != null) {
+        stack.push(current.right);
+      }
+      if (current.left != null) {
+        stack.push(current.left);
+      }
     }
+    System.out.println(Arrays.toString(nums.toArray()));
+  }
 
-    void levelOrder(TreeNode node){
-        if(node == null){
-            return;
-        }
-        TreeNode cur = node;
-        Queue<TreeNode> queue = new LinkedBlockingQueue<>();
-        queue.add(node);
-        while(!queue.isEmpty()){
-            cur = queue.remove();
-            System.out.print(cur.data+ " ");
-            if(cur.left != null){
-                queue.add(cur.left);
-            }
-            if(cur.right != null){
-                queue.add(cur.right);
-            }
-
-        }
-        System.out.println();
+  void postOrder(TreeNode node) {
+    if (node != null) {
+      postOrder(node.left);
+      postOrder(node.right);
+      System.out.print(node.data + " ");
     }
+  }
 
-    void morrisInorder(TreeNode node){
-        TreeNode cur = node;
-        while(cur != null){
-            if(cur.left == null){
-                System.out.print(cur.data +" ");
-                cur = cur.right;
-            }else{
-                TreeNode temp = cur.left;
-                while(temp.right != null){
-                    temp = temp.right;
-                }
-                temp.right = cur;
-                temp = cur.left;
-                cur.left = null;
-                cur = temp;
+  void levelOrder(TreeNode node) {
+    if (node == null) {
+      return;
+    }
+    TreeNode cur = node;
+    Queue<TreeNode> queue = new LinkedBlockingQueue<>();
+    queue.add(node);
+    while (!queue.isEmpty()) {
+      cur = queue.remove();
+      System.out.print(cur.data + " ");
+      if (cur.left != null) {
+        queue.add(cur.left);
+      }
+      if (cur.right != null) {
+        queue.add(cur.right);
+      }
 
-            }
+    }
+    System.out.println();
+  }
+
+  void morrisInorder(TreeNode node) {
+    TreeNode cur = node;
+    while (cur != null) {
+      if (cur.left == null) {
+        System.out.print(cur.data + " ");
+        cur = cur.right;
+      } else {
+        TreeNode temp = cur.left;
+        while (temp.right != null) {
+          temp = temp.right;
         }
+        temp.right = cur;
+        temp = cur.left;
+        cur.left = null;
+        cur = temp;
+
+      }
     }
+  }
 
-    TreeNode search(int data){
-        TreeNode cur = this.root;
-        while(cur != null){
-            if(data == cur.data){
-                break;
-            }else if(data < cur.data){
-                cur = cur.left;
-            }else{
-                cur = cur.right;
-            }
-        }
-        return cur;
+  TreeNode search(int data) {
+    TreeNode cur = this.root;
+    while (cur != null) {
+      if (data == cur.data) {
+        break;
+      } else if (data < cur.data) {
+        cur = cur.left;
+      } else {
+        cur = cur.right;
+      }
     }
+    return cur;
+  }
 
-    TreeNode min(){
-        if(this.root == null){
-            return null;
-        }
-        TreeNode node = this.root;
-        while(node.left != null){
-            node = node.left;
-        }
-        return node;
+  TreeNode min() {
+    if (this.root == null) {
+      return null;
     }
-
-    TreeNode max(){
-        if(this.root == null){
-            return null;
-        }
-        TreeNode node = this.root;
-        while(node.right != null){
-            node = node.right;
-        }
-        return node;
+    TreeNode node = this.root;
+    while (node.left != null) {
+      node = node.left;
     }
+    return node;
+  }
 
-    int nodeCount(TreeNode root){
-        int count = 0;
-        TreeNode node = root;
-        if(node != null){
-            count = nodeCount(node.left) + nodeCount(node.right) + 1;
-        }
-        return count;
+  TreeNode max() {
+    if (this.root == null) {
+      return null;
     }
-
-    int height(TreeNode node){
-        int height = 0;
-        if(node != null){
-            height = Math.max(height(node.left), height(node.right));
-            height++;
-        }
-        return height;
+    TreeNode node = this.root;
+    while (node.right != null) {
+      node = node.right;
     }
+    return node;
+  }
 
-    int diameter(TreeNode node){
-        int diameter = 0;
-        if(node != null){
-            int lh = height(node.left);
-            int rh = height(node.right);
-            diameter = rh + lh + 1;
-        }
-        return diameter;
+  int nodeCount(TreeNode root) {
+    int count = 0;
+    TreeNode node = root;
+    if (node != null) {
+      count = nodeCount(node.left) + nodeCount(node.right) + 1;
     }
+    return count;
+  }
 
-    TreeNode predecessor(int data){
-        TreeNode node = search(data);
-        TreeNode min = min();
-        if(node == null || node == min)
-            return null;
-
-        return null;
+  int height(TreeNode node) {
+    int height = 0;
+    if (node != null) {
+      height = Math.max(height(node.left), height(node.right));
+      height++;
     }
+    return height;
+  }
 
-    TreeNode successor(int data){
-        TreeNode node = search(data);
-        TreeNode max = max();
-        if(node == null || max == node)
-            return null;
-
-        return null;
+  int diameter(TreeNode node) {
+    int diameter = 0;
+    if (node != null) {
+      int lh = height(node.left);
+      int rh = height(node.right);
+      diameter = rh + lh + 1;
     }
+    return diameter;
+  }
 
-    void delete(int data){
-        TreeNode cur = root;
-    }
+  TreeNode predecessor(int data) {
+    TreeNode node = search(data);
+    TreeNode min = min();
+    if (node == null || node == min)
+      return null;
+
+    return null;
+  }
+
+  TreeNode successor(int data) {
+    TreeNode node = search(data);
+    TreeNode max = max();
+    if (node == null || max == node)
+      return null;
+
+    return null;
+  }
+
+  void delete(int data) {
+    TreeNode cur = root;
+  }
 }

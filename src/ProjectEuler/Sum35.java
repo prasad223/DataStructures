@@ -10,17 +10,17 @@ import java.util.Map;
  */
 public class Sum35 {
 
-    static Map<Long, Long> sum3;
-    static Map<Long, Long> sum5;
+  static Map<Long, Long> sum3;
+  static Map<Long, Long> sum5;
 
-    public static void main(String[] args)throws IOException{
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int testCasesCount = Integer.parseInt(bufferedReader.readLine());
-        long cap;
-        
-        for(int i=0 ; i < testCasesCount; i++){
-            cap = Long.parseLong(bufferedReader.readLine());
-            System.out.println();
-        }
+  public static void main(String[] args) throws IOException {
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    int testCasesCount = Integer.parseInt(bufferedReader.readLine());
+    long cap;
+
+    for (int i = 0; i < testCasesCount; i++) {
+      cap = Long.parseLong(bufferedReader.readLine());
+      System.out.println();
     }
+  }
 }
